@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = 3001;
 
 const path = require('path')
 const cors = require('cors')
@@ -33,6 +33,8 @@ app.use(express.static(path.join(__dirname, "dist")));
 app.use(express.json()); 
 
 // routes
+
+
 
 app.get('/cars', async (req, res) => {
     const dbCars = await Car.find();
