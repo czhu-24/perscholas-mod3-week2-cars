@@ -16,21 +16,26 @@ require('./config/db.cjs');
 
 // middleware
 
-app.use(morgan('dev'));
-
-app.use(express.json()); 
+const middleware = (req, res, next) => {
+    next();
+}
 
 app.use(cors({
     origin: "*"
 }))
 
+app.use(morgan('dev'));
+
+app.use(middleware);
+
 app.use(express.static(path.join(__dirname, "dist")));
+
+app.use(express.json()); 
 
 // routes
 
 app.get('/cars', async (req, res) => {
     const dbCars = await Car.find();
-    console.log(dbCars);
     res.send(dbCars);
 })
 
