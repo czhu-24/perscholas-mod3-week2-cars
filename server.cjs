@@ -41,6 +41,11 @@ app.get('/cars', async (req, res) => {
     res.send(dbCars);
 })
 
+app.post('/cars', async (req, res) => {
+    const newCar = await Car.create(req.body);
+    res.status(201).send(newCar);
+})
+
 app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 });
