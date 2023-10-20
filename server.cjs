@@ -37,7 +37,6 @@ app.use(express.json());
 app.get('/cars/:carModel', async(req, res) => {
     // LET'S PRETEND I NAMED THE CAR NAME AS CAR MODEL
     const search = req.params.carModel;
-    console.log(`THE CAR MODEL IS ${search}`);
     const foundCar = await Car.findOne({model: search});
     if(!foundCar){
         res.status(404).send("No car found");

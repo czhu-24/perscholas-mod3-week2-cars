@@ -11,7 +11,6 @@ const Cars = () => {
       method: "GET",
       url: "/server/cars"
     }).then(res => {
-      console.log(res);
       setCars(res.data);
     })
 
@@ -19,11 +18,11 @@ const Cars = () => {
   return (
     <div>
       <h2>All cars</h2>
-      {cars.map(car => 
+      {cars.map(car =>
         <div key={JSON.stringify(car)}>
-          {car.model} 
+          {car.model}
           <Link to={`/cars/${car.model}`}>
-          <button>See more</button>
+            <button>See more</button>
           </Link>
         </div>)}
     </div>

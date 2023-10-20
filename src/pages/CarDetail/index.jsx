@@ -9,12 +9,10 @@ const CarDetail = () => {
 
   const modelSearch = pathParts[pathParts.length - 1];
 
-  console.log(`LOOK HERE, model search is ${modelSearch}`)
-
   const [car, setCar] = useState({
-    model: "", 
-    make: "", 
-    year: 0, 
+    model: "",
+    make: "",
+    year: 0,
     color: ""
   });
 
@@ -23,7 +21,6 @@ const CarDetail = () => {
       method: "GET",
       url: `/server/cars/${modelSearch}`
     }).then((res) => {
-      console.log(res);
       setCar({
         model: res.data.model,
         make: res.data.make,
